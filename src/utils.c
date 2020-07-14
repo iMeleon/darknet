@@ -366,6 +366,7 @@ list *split_str(char *s, char delim)
     return l;
 }
 
+
 void strip(char *s)
 {
     size_t i;
@@ -373,8 +374,14 @@ void strip(char *s)
     size_t offset = 0;
     for(i = 0; i < len; ++i){
         char c = s[i];
-        if(c==' '||c=='\t'||c=='\n'||c =='\r'||c==0x0d||c==0x0a) ++offset;
-        else s[i-offset] = c;
+        if ((c == ' ' && i > 0 && s[i - 1] != '\\') || c == '\t' || c == '\n' || c == '\r' || c == 0x0d || c == 0x0a) {
+            ++offset;
+        } else if (c == ' ') {
+            ++offset;
+            s[i - offset] = c;
+        } else {
+            s[i - offset] = c;
+        }
     }
     s[len-offset] = '\0';
 }
@@ -387,16 +394,8 @@ void strip_args(char *s)
     size_t offset = 0;
     for (i = 0; i < len; ++i) {
         char c = s[i];
-        if ((c == ' ' && i > 0 && s[i - 1] != '\\') || c == '\t' || c == '\n' || c == '\r' || c == 0x0d || c == 0x0a) {
-          ++offset;
-        } else if (c == ' ') {
-            ++offset;
-            s[i - offset] = c;
-        } else {
-            s[i - offset] = c;
-        }
-        }
-
+        if (c == '\t' || c == '\n' || c == '\r' || c == 0x0d || c == 0x0a) ++offset;
+        else s[i - offset] = c;
     }
     s[len - offset] = '\0';
 }
