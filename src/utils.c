@@ -388,13 +388,15 @@ void strip_args(char *s)
     for (i = 0; i < len; ++i) {
         char c = s[i];
         if ((c == ' ' && i > 0 && s[i - 1] != '\\') || c == '\t' || c == '\n' || c == '\r' || c == 0x0d || c == 0x0a) {
-        else s[i-offset] = c;	            ++offset;
+          ++offset;
         } else if (c == ' ') {
             ++offset;
             s[i - offset] = c;
         } else {
             s[i - offset] = c;
         }
+        }
+
     }
     s[len - offset] = '\0';
 }
