@@ -348,7 +348,6 @@ void forward_backward_network_gpu(network net, float *x, float *y)
         cuda_free(state.delta);
         cuda_pull_array(*net.input_gpu, x, x_size);
     }
-    if(*(state.net.total_bbox) > 0)
 
 }
 
