@@ -1267,7 +1267,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "[TRUE][TRUE][c ][v2.0()]"
+			"value" : "[TRUE][TRUE][c ][v()]"
 		},
 		{
 			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_OpenMP_C",
@@ -1279,7 +1279,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "[-openmp][v2.0()]"
+			"value" : "[-openmp][v()]"
 		},
 		{
 			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_OpenMP_CXX",
@@ -1291,7 +1291,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "[-openmp][v2.0()]"
+			"value" : "[-openmp][v()]"
 		},
 		{
 			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_PThreads_windows",
